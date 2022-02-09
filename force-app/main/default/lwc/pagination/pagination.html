@@ -1,0 +1,25 @@
+<template>
+    <div class="size">
+        <lightning-button-icon
+            icon-name="utility:chevronleft" 
+            alternative-text="Back"
+            title="Back"
+            disabled={canBack}
+            onclick={handleButton}
+            value="back"
+            class="slds-m-left_x-small slds-float_left"></lightning-button-icon>
+            <span>
+                <template for:each={pages} for:item="item" for:index="index">
+                    <c-page key={item} num-page={item} current-page={currentPage} onchangepage={handleChangePage}></c-page>
+                </template>
+            </span>
+        <lightning-button-icon
+            icon-name="utility:chevronright" 
+            alternative-text="Next"
+            title="Next"
+            disabled={canNext}
+            onclick={handleButton}
+            value="next"
+            class="slds-m-left_x-small slds-float_right"></lightning-button-icon>
+    </div>
+</template>
