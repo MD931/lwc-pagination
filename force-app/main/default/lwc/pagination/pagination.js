@@ -57,7 +57,7 @@ export default class Pagination extends LightningElement {
             });
         }
         if(currentPage - delta > 1) {
-            pages.unshift('...');
+            if(currentPage - delta !== 2) pages.unshift('...');
             pages.unshift(1);
         }
         if(currentPage < totalPages) {
@@ -68,7 +68,7 @@ export default class Pagination extends LightningElement {
             //pages.push(currentPage + delta);
         }
         if(currentPage + delta < totalPages){
-            pages.push('...');
+            if(currentPage + delta + 1 !== totalPages) pages.push('...');
             pages.push(totalPages);
         }
 
