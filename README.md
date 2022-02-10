@@ -5,8 +5,10 @@
 
 # How to use it ?
 
+```html
 <c-pagination
   total-element="201"
   number-result-page="20"
   onchangepage={handleChangePage}
   ></c-pagination>
+```
