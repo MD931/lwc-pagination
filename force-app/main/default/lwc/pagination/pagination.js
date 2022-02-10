@@ -23,7 +23,11 @@ export default class Pagination extends LightningElement {
 
     changePage(page){
         this.currentPage = page;
-        //Dispatch envent changepage
+        const selectedEvent = new CustomEvent("changepage", {
+            detail: page
+          });
+        // Dispatches the event.
+        this.dispatchEvent(selectedEvent);
     }
 
     get pages(){
@@ -52,7 +56,10 @@ export default class Pagination extends LightningElement {
                 pages.unshift(e);
             });
         }
-        if(currentPage - delta > 1) pages.unshift('...');
+        if(currentPage - delta > 1) {
+            pages.unshift('...');
+            pages.unshift(1);
+        }
         if(currentPage < totalPages) {
             let end = currentPage + delta < totalPages ? currentPage + delta : totalPages;
             this.range(currentPage + 1, end).forEach(e =>{
@@ -60,7 +67,10 @@ export default class Pagination extends LightningElement {
             });
             //pages.push(currentPage + delta);
         }
-        if(currentPage + delta < totalPages) pages.push('...');
+        if(currentPage + delta < totalPages){
+            pages.push('...');
+            pages.push(totalPages);
+        }
 
         return pages;
     }

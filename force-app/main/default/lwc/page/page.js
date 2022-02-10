@@ -6,9 +6,7 @@ export default class Page extends LightningElement {
     @api currentPage;
 
     handleClick(e){
-        console.log('handleClick');
-        console.log('target value', e.target.value);
-        const selectedEvent = new CustomEvent("changepage", {
+        const selectedEvent = new CustomEvent("selectpage", {
             detail: e.target.value
           });
         // Dispatches the event.

@@ -10,7 +10,7 @@
             class="slds-m-left_x-small slds-float_left"></lightning-button-icon>
             <span>
                 <template for:each={pages} for:item="item" for:index="index">
-                    <c-page key={item} num-page={item} current-page={currentPage} onchangepage={handleChangePage}></c-page>
+                    <c-page key={item} num-page={item} current-page={currentPage} onselectpage={handleChangePage}></c-page>
                 </template>
             </span>
         <lightning-button-icon
